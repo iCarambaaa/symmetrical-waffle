@@ -7,16 +7,28 @@ import { genericErrorHandler, badRequestHandler, unauthorizedHandler, notFoundHa
 
 const server = express()
 
+server.use(cors()) // this! for FE & BE communication
 server.use(express.json())   // this! specify before ENDPOINTS, else all will be UNDEFINED
 
+
+// ************************ ENDPOINTS **********************
+
 server.use("/authors", authorRouter)
-server.use("/posts", postsRouter)
+server.use("/blogPosts", postsRouter)
+
+
+// *********************** ERROR MIDDLEWARES ***************************
+
+server.use(badRequestHandler)
+server.use(unauthorizedHandler)
+server.use(notFoundHandler)
+server.use(genericErrorHandler)
+
+
 
 const port = 3001
 
 console.table(listEndpoints(server)) // usage of express-list-endpoints
-
-
 
 server.listen(port, () => {
     console.log('listening on port:', port)
