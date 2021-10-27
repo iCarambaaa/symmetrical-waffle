@@ -37,7 +37,7 @@ export default class NewBlogPost extends Component {
   };
   componentDidUpdate = async (e) => {};
   handleChange(value) {
-    this.setState({ text: value });
+    this.setState({ text: value, category: value, title: value });
   }
 
   render() {
@@ -50,7 +50,7 @@ export default class NewBlogPost extends Component {
               size="lg"
               placeholder="Title"
               type="text"
-              onInput={(event) => this.setState({ title: event.target.value })}
+              onChange={(e) => this.handleChange(e)}
               value={this.state.title}
             />
 
@@ -60,9 +60,7 @@ export default class NewBlogPost extends Component {
                 size="lg"
                 as="select"
                 type="dropdown"
-                onSelect={(event) =>
-                  this.setState({ category: event.target.value })
-                }
+                onChange={(e) => this.handleChange(e)}
                 value={this.state.category}
               >
                 <option>Blockchain</option>
@@ -85,7 +83,7 @@ export default class NewBlogPost extends Component {
                 type="reset"
                 size="lg"
                 variant="outline-dark"
-                onClick={this.setState({ text: "", title: "", category: "" })}
+                // onClick={this.setState({ text: "", title: "", category: "" })}
               >
                 Reset
               </Button>
