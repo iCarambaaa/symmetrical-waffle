@@ -16,7 +16,7 @@ class Blog extends Component {
   fetchBlogPosts = async (id) => {
     try {
       const response = await fetch(
-        `https://express-server-w1.herokuapp.com/blogs/` + id
+        `https://express-server-w1.herokuapp.com/posts/` + id
       );
       if (response.ok) {
         const blogs = await response.json();
