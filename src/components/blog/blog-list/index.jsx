@@ -39,7 +39,7 @@ export default class BlogList extends Component {
       } else {
         return (
           <Row>
-            {posts.map((post) => (
+            {blogs.map((post) => (
               <Col md={4} style={{ marginBottom: 50 }}>
                 <BlogItem key={post.title} {...post} />
               </Col>
