@@ -3,7 +3,7 @@ import { Container, Image } from "react-bootstrap";
 import { withRouter } from "react-router";
 import BlogAuthor from "../../components/blog/blog-author";
 import BlogLike from "../../components/likes/BlogLike";
-import posts from "../../data/posts.json";
+// import posts from "../../data/posts.json";
 import "./styles.css";
 
 class Blog extends Component {
@@ -16,7 +16,7 @@ class Blog extends Component {
   fetchBlogPosts = async (id) => {
     try {
       const response = await fetch(
-        `https://express-server-w1.herokuapp.com/blogs/` + id
+        `https://express-server-w1.herokuapp.com/posts/` + id
       );
       if (response.ok) {
         const blogs = await response.json();

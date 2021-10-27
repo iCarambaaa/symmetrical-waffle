@@ -14,7 +14,7 @@ export default class BlogList extends Component {
   fetchBlogPosts = async () => {
     try {
       const response = await fetch(
-        `https://express-server-w1.herokuapp.com/blogs`
+        `https://express-server-w1.herokuapp.com/posts`
       );
       if (response.ok) {
         const blogs = await response.json();
@@ -39,7 +39,7 @@ export default class BlogList extends Component {
       } else {
         return (
           <Row>
-            {posts.map((post) => (
+            {blogs.map((post) => (
               <Col md={4} style={{ marginBottom: 50 }}>
                 <BlogItem key={post.title} {...post} />
               </Col>
