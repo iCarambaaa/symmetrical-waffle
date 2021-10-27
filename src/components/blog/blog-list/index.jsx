@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import BlogItem from "../blog-item";
 import posts from "../../../data/posts.json";
-import Loader from "../../loader";
+//import Loader from "../../loader";
 
 export default class BlogList extends Component {
   state = {
@@ -32,7 +32,7 @@ export default class BlogList extends Component {
   render() {
     const { loading, error, blogs } = this.state;
     if (loading) {
-      return <Loader />;
+      return <div>loading</div>;
     } else {
       if (error) {
         return <div>{error}</div>;
