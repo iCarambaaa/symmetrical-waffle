@@ -33,10 +33,8 @@ class Blog extends Component {
   };
 
   componentDidMount() {
-    console.log(this.state);
     const { id } = this.props.match.params;
     this.fetchBlogPosts(id);
-    console.log(id);
   }
 
   render() {
